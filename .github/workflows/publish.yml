@@ -2,6 +2,7 @@ name: Publish GitHub Pages
 on: [push, workflow_dispatch]
 jobs:
   build:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/jekyll-build-pages@v1.0.7
   deploy:
