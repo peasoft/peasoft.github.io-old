@@ -4,16 +4,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: '0'
+      - uses: actions/checkout@v3
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
-      - uses: helaili/jekyll-action@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: peasoft/rubygems-install-action@v1
+      - run: |
+          bundle install
+          jekyll build
       - uses: actions/upload-pages-artifact@v1.0.7
   deploy:
     needs: build
