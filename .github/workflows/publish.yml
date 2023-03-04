@@ -11,11 +11,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
-      - name: Build site
-        uses: limjh16/jekyll-action-ts@v2
+      - uses: helaili/jekyll-action@v2
         with:
-          enable_cache: true
-      # - uses: actions/jekyll-build-pages@v1.0.7
+          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/upload-pages-artifact@v1.0.7
   deploy:
     needs: build
