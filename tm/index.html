@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="static/home.css">
+        <title>注意！这些学校又有大动作了！</title>
+        <script src="static/home.js"></script>
+    </head>
+    <body onload="showname()">
+        <div class="block">
+            <h1>您知道吗？您身边的学校<span id="schoolname"></span>正在违反教育部的各项规定进行考试！</h1>
+            <p>教育部2017年发布的<a href="http://www.moe.gov.cn/srcsite/A06/s3325/201703/t20170304_298203.html">《教育部办公厅关于做好中小学生课后服务工作的指导意见》</a>中明确提及：“坚决防止将课后服务变相成为集体教学或‘补课’。”2021年发布的<a href="http://www.gov.cn/zhengce/zhengceku/2021-08/30/content_5634178.htm">《教育部办公厅关于加强义务教育学校考试管理的通知》</a>中同样明确提及：“各地<strong>不得</strong>面向小学各年级和初中非毕业年级组织<strong>区域性或跨校际</strong>的考试；学校和班级不得组织<strong>周考、月考、单元考试</strong>等其他各类考试，也不得<strong>以测试、测验、限时练习、学情调研等各种名义变相组织考试</strong>。”</p>
+            <p>尽管有这些规定的存在，但仍有部分学校<strong>拒不遵守</strong>这些规定，将课后服务变为周考、月考，<strong>严重危害学生们的身心健康</strong>。但群众的眼睛是雪亮的，若要人不知，除非己莫为。为此，我们制作了这个页面来统计存在此问题的学校，并将这些数据通过合理方式向上级政府部门上报。</p>
+            <p>如果您、您的孩子或您朋友的孩子所在的学校存在这样的问题，请在下方填写此学校的校名。您也可以留下您的姓名，我们会将这些信息整理成一封信件提交给相关部门。</p>
+        </div>
+        <div class="block" id="reportblock">
+            <h2>调查</h2>
+            <form action="report" method="POST" target="report">
+                <label>校名：<input type="text" name="school" id="schoolnamef" autocomplete="organization" placeholder="存在违规行为的学校的校名" required="true" style="margin-bottom: 10px;"></label><br />
+                <label>您的姓名：<input type="text" name="reporter" autocomplete="name" placeholder="匿名请留空"></label><br />
+                <small>您的姓名只会作为投诉人之一被附加在投诉信的末尾，不会被用做其它用途。如果您对我们不够信任，请将姓名一栏留空！</small>
+                <div style="margin-top: 10px; text-align: center;"><button type="submit" id="submit">确认提交</button></div>
+            </form>
+            <iframe id="report" name="report" onload="checkreport()" hidden></iframe>
+        </div>
+        <div class="block">
+            <h2>分享</h2>
+            <p>正所谓“人多力量大”，我们希望您能够将此页面转发至各群聊以及您的朋友圈，让更多人看到这些内容，让这些学校的错误被更多人所了解到，从而督促学校更快改正这些错误。如果学校存在违规行为，您也可以将您的学校名填写在下方，生成属于相应学校的“喜报”。</p>
+            <input id="schoolnamei" type="text" autocomplete="organization" placeholder="学校名" style="margin-top: 20px;" />
+            <button type="button" onclick="location.search='?'+encodeURI(document.getElementById('schoolnamei').value)">生成</button>
+        </div>
+        <div class="block">
+            <h2>调查结果</h2>
+            <iframe id="ResIfr" src="" style="height:0;width:100%;border:none;overflow:hidden;"></iframe>
+        </div>
+        <footer><small>发起人：匿名网友</small></footer>
+    </body>
+</html>
